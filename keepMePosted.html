@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles/global.css" type="text/css">
+    <link rel="stylesheet" href="styles/style.css" type="text/css">
+
+    <title>Keep Me Posted</title>
+</head>
+<body>
+    <div class="container-register">
+        <header>
+         <h1>Sign-in to receive updates about your countdown</h1>
+        </header>
+            <form id="register-form">
+                <div class="full-box">
+                    <label for="email">E-mail</label>
+                    <input type="email" name="email" id="email" placeholder="Type your e-mail">
+                </div>
+
+                <div class="half-box  spacing">
+                    <label for="name">Name</label>
+                    <input type="text" name="name" id="name" placeholder="Type your name">
+                </div>
+
+                <div class="half-box">
+                    <label for="lastname">Lastname</label>
+                    <input type="text" name="lastname" id="lastname" placeholder="Type your lastname">
+                </div>
+
+                <div class="full-box">
+                    <input type="checkbox" name="agreement" id="agreement">
+                    <label for="agreement" id="agreement-label">I accept receive emails about my countdown</label>
+                </div>
+
+                <div class="full-box">
+                    <input type="submit" id="btn-submit" value="Sign-in">
+                </div>
+            </form>
+    </div>
+
+
+
+    <p class="error-validation template"></p>
+
+
+
+    <img src="images/top-image.svg" class="top-image" >
+    <img src="images/bottom-image.svg" class="bottom-image">
+
+</body>
+<script src="dateCounter.js"></script>
+<script src="validation.js"></script>
+</html>

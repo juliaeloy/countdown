@@ -1,0 +1,332 @@
+body {
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.container{
+    width: 80%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 2rem;
+}
+
+.container .countdown{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.container .information-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+ .information-box header h1 {
+    font-size: 2.5rem;
+    font-weight: 500;
+    
+    color: var(--light-grey);
+
+    text-transform: uppercase;
+
+}
+
+.date-information{ 
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 1rem;
+}
+
+
+.information-box  .information-item-text{
+    margin-top: 0.6rem;
+    text-align: center;
+
+    color: var(--light-purple);
+}
+
+.information-box input{
+    height: 3rem;
+    border-bottom: 2px solid var(--light-purple);
+    padding: 10px;
+    font-size: 9.rem;
+    margin-bottom: 15px;
+    text-align: center;
+    outline: none;
+}
+
+input:focus{
+    border-color: var(--light-grey) ;
+}
+
+.information-box .sendDate button{
+    color: var(--light-purple);
+    box-align: center;
+    margin-top: 1rem;
+
+    border: 0;
+    border-radius: 10px;
+
+    padding: 1rem 2rem;
+    background: var(--light-grey);
+
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+
+}
+
+.information-box .sendDate button:hover{
+    border: 1px solid var(--light-purple);
+    background-color: var(--light-purple);
+    color: var(--light-grey);
+   
+
+}
+
+.container .countdown header h1 {
+    font-size: 2.25rem;
+    font-weight: 500;
+    
+    color: var(--light-grey);
+
+    text-transform: uppercase;
+
+}
+
+.countdown .countdown-time{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+
+    gap: 1rem;
+}
+
+.countdown .countdown-time .countdown-time-item{
+
+    margin-top: 1.18rem;
+    text-align: center;
+
+}
+
+.countdown-time .countdown-time-item .countdown-time-text{
+    font-size: 0.875rem;
+    font-weight: 300;
+    color: var(--light-purple);
+}
+
+.countdown-time .countdown-time-item .countdown-time-number{
+    font-size: 4.5rem;
+    font-weight: 400;
+    color: var(--light-purple);
+}
+
+.container .countdown .footer{
+
+    margin-top: 2rem;
+    text-align: center;
+
+}
+
+ .countdown footer span{
+
+    display: block;
+
+    font-size: 0.875rem;
+    font-weight: 400;
+
+    color: var(--text-color);
+}
+
+.countdown footer button{
+
+    color: var(--light-purple);
+    box-align: center;
+    margin-top: 1rem;
+
+    border: 0;
+    border-radius: 10px;
+
+    padding: 1rem 4rem;
+    background: var(--light-grey);
+
+
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.countdown footer button:hover{
+    border: 1px solid var(--light-purple);
+    background-color: var(--light-purple);
+    color: var(--light-grey);
+   
+}
+
+.top-image{
+    width: 100%;
+
+    position: absolute;
+    top: -1rem;
+    left: 0;
+}
+
+.bottom-image{
+    width: 100%;
+
+    position: absolute;
+    bottom: -4rem;
+    left: 0;
+}
+
+@media (max-width: 1080px){
+    .container{
+        flex-direction: column;
+        gap: 4rem;
+    }
+
+    container .countdown header h1{
+        font-size: 1.5rem;
+        
+    }
+
+
+   
+}
+
+.signature {
+    background: transparent;
+    position: sticky;
+    top: 100vh;
+}
+
+.signature span{
+   color: var(--light-grey);
+}
+
+.signature a, a:visited{
+    color: var(--light-grey);
+    text-decoration: none;
+}
+
+/*------------------------------------------------------------------------------------------
+ --------------------------------------------KEEP ME POSTED---------------------------------
+ -------------------------------------------------------------------------------------------*/
+.container-register {
+    width: 40%;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--light-grey);
+ }
+
+ .container-register input,label {
+    display: block;
+    width: 100%;
+ }
+ .container-register input:focus,label:focus {
+    outline: none;
+ }
+
+
+.container-register header h1{
+    font-size: 2rem;
+    font-weight: 500;
+    
+    color: var(--light-grey);
+    
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.container-register form{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+
+.container-register .full-box{
+    flex: 1 1 100%;
+    position: relative;
+}
+
+.container-register .half-box{
+    flex: 1 1 45%;
+    position: relative;
+}
+
+.container-register .spacing{
+    margin-right: 2.5%;
+}
+
+.container-register label{
+    font-size: .8rem;
+}
+
+.container-register input{
+    border-bottom: 2px solid var(--light-purple);
+    padding: 10px;
+    font-size: 9.rem;
+    margin-bottom: 15px;
+}
+
+.container-register input:focus{
+    border-color: var(--light-grey) ;
+}
+
+.container-register input[type="submit"]{
+    background-color: var(--light-grey);
+    color: var(--light-purple);
+    border: none;
+    border-radius: 10px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.container-register input[type="submit"]:hover{
+    border: 1px solid var(--light-purple);
+    background-color: var(--light-purple);
+    color: var(--light-grey);
+   
+}
+
+#agreement {
+    margin-right: 5px;
+}
+
+#agreement, #agreement-label{
+    display: inline-block;
+    width: auto;
+}
+
+/*------------------------------------------------------------------------------------------
+ ------------------------------------------------ERROR--------------------------------------
+ -------------------------------------------------------------------------------------------*/
+
+ .error-validation{
+    color: var(--text-color);
+    position: absolute;
+    top: 57px;
+    font-size: .8rem;
+ }
+
+ .template{
+    display: none;
+ }
