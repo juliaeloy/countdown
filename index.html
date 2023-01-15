@@ -49,38 +49,34 @@
 
         <div class="information-box">
             <header>
-                <h1>please enter the date:</h1>
+                <h1>please enter the infos:</h1>
             </header>
             <div class="date-information">
                 <div class="information-item">
                     <form >
-                    <p class="information-item-text"> Start date:</p>
-                    <input type="text" id="endtime" placeholder="From 02 Jan 2023">
+                    <p class="information-item-text"> Countdown Title:</p>
+                    <input type="text" id="title" placeholder="Next holidays">
                     </form> 
                 </div>
 
                 <div class="information-item">
                     <form >
                     <p class="information-item-text"> End date:</p>
-                    <input type="text" id="endtime" placeholder="To 01 jun 2022">
+                    <input type="date" id="enddate">
                     </form> 
                 </div>
             </div>
 
             <div class="sendDate">
-                <button id="start-count" >Calculate </button>
+                <button id="button-start-count"> Calculate </button>
             </div> 
         </div>
     </div>
 
     <img src="images/top-image.svg" class="top-image" >
     <img src="images/bottom-image.svg" class="bottom-image">
-    
-    <div class="signature">
-        <span> Made with 🤍 by <a href="https://github.com/juliaeloy">J.Eloy</a> </span>
-    </div>
+
     
 </body>
-<script src="dateCounter.js"></script>
-<script src="validation.js"></script>
+<script src="script.js"></script>
 </html>
