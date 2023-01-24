@@ -48,6 +48,7 @@ body {
 }
 
 .date-information{ 
+    color: var(--text-color);
     display: grid;
     grid-template-columns: repeat(2,1fr);
     gap: 1rem;
@@ -63,6 +64,7 @@ body {
 
 .information-box input{
     height: 3rem;
+    color: var(--text-color);
     border-bottom: 2px solid var(--light-purple);
     padding: 10px;
     font-size: 9.rem;
@@ -72,6 +74,7 @@ body {
 }
 
 input:focus{
+    color: var(--text-color);
     border-color: var(--light-grey) ;
 }
 
@@ -153,11 +156,12 @@ input:focus{
     color: var(--text-color);
 }
 
-.countdown footer button{
+.countdown footer #keep-me-posted{
 
     color: var(--light-purple);
     box-align: center;
     margin-top: 1rem;
+    margin-left: 4.5rem;
 
     border: 0;
     border-radius: 10px;
@@ -165,9 +169,9 @@ input:focus{
     padding: 1rem 4rem;
     background: var(--light-grey);
 
-
     cursor: pointer;
     transition: all 0.2s ease-in-out;
+
 }
 
 .countdown footer button:hover{
@@ -189,7 +193,7 @@ input:focus{
     width: 100%;
 
     position: absolute;
-    bottom: -4rem;
+    bottom: -6rem;
     left: 0;
 }
 
@@ -208,11 +212,6 @@ input:focus{
    
 }
 
-.signature {
-    background: transparent;
-    position: sticky;
-    top: 100vh;
-}
 
 .signature span{
    color: var(--light-grey);
@@ -237,11 +236,13 @@ input:focus{
  }
 
  .container-register input,label {
+    color: var(--text-color);
     display: block;
     width: 100%;
  }
  .container-register input:focus,label:focus {
     outline: none;
+    color: var(--text-color);
  }
 
 
@@ -261,10 +262,10 @@ input:focus{
     justify-content: space-between;
 }
 
-
 .container-register .full-box{
     flex: 1 1 100%;
     position: relative;
+
 }
 
 .container-register .half-box{
@@ -284,10 +285,12 @@ input:focus{
     border-bottom: 2px solid var(--light-purple);
     padding: 10px;
     font-size: 9.rem;
+    color: var(--text-color);
     margin-bottom: 15px;
 }
 
 .container-register input:focus{
+    color: var(--text-color);
     border-color: var(--light-grey) ;
 }
 
@@ -303,6 +306,7 @@ input:focus{
 .container-register input[type="submit"]:hover{
     border: 1px solid var(--light-purple);
     background-color: var(--light-purple);
+    color: var(--text-color);
     color: var(--light-grey);
    
 }
