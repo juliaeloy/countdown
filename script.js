@@ -1,15 +1,30 @@
 // Elements
 const calculateButtonElement = document.querySelector('#button-start-count')
-const title = document.querySelector('title')
+const keepMePostedButtonElement = document.querySelector('#keep-me-posted')
 const daysText = document.querySelector('#days')
 const hoursText = document.querySelector('#hours')
 const minText = document.querySelector('#min')
 const secText = document.querySelector('#sec')
 const currentDate = new Date();
-let endDate = document.querySelector("enddate");
+const endDate = document.querySelector("#enddate")
 
+//Global variables 
+let canCalculateFlag = false 
 
 // Functions
+
+function keepMePosted() {
+    if (canCalculateFlag){
+        setCookie("nome", "Julia", 1)
+        // title and end date
+    
+        alert ('deu certo')
+        // 
+    }
+    else {
+        alert('deu errado')
+    }
+}
 
 function validateDate(endDate) {
     // To do Here
@@ -37,8 +52,6 @@ function validateCountdown() {
     const endDateElement = document.getElementById('enddate')
     const titleElement = "" // To do
     const endDate = endDateElement.value
-    //block the calendar icon to not accept dates before today's date
-    //endDate.min = new Date().toISOString().split('T')[0];
     const dateToSend = new Date(endDate)
 
     const dateIsValid = validateDate(dateToSend)
@@ -46,13 +59,15 @@ function validateCountdown() {
 
     if (dateIsValid && titleIsValid) {
         startCoundown(dateToSend)
+        canCalculateFlag = true
     } else {
+        canCalculateFlag = false
         alert ('Preencha todos os campos corretamente')
     }
 }
 
 function getCountdownValue(deadlineDate) {
-    const currentDate = new Date();
+    const currentDate = new Date()
     const totalSeconds = (deadlineDate - currentDate)/1000
     const days = Math.floor((totalSeconds / 3600) / 24)
     const hours = Math.floor((totalSeconds / 3600) % 24)
@@ -83,10 +98,27 @@ function startCoundown(deadlineDate) {
     }, 1000)
 }
 
+function getCookie(name) {
+    var v = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
+    return v ? v[2] : null;
+}
+
+function setCookie(name, value, days) {
+    var d = new Date;
+    d.setTime(d.getTime() + 24*60*60*1000*days);
+    document.cookie = name + "=" + value + ";path=/;expires=" + d.toGMTString();
+}
+
+function deleteCookie(name) { setCookie(name, '', -1); }
+
 // Listeners 
 calculateButtonElement.addEventListener('click', validateCountdown)
+keepMePostedButtonElement.addEventListener('click', keepMePosted)
 
 // Setters
 daysText.innerText = hoursText.innerText = minText.innerText = secText.innerText = "00";
+
+//calendar
+endDate.min = new Date().toISOString().split('T')[0];
 
 
