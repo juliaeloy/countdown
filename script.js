@@ -1,6 +1,7 @@
 // Elements
 const calculateButtonElement = document.querySelector('#button-start-count')
 const keepMePostedButtonElement = document.querySelector('#keep-me-posted')
+const HomePageButtonElement = document.querySelector('#homePage') 
 const daysText = document.querySelector('#days')
 const hoursText = document.querySelector('#hours')
 const minText = document.querySelector('#min')
@@ -12,22 +13,31 @@ const endDate = document.querySelector("#enddate")
 let canCalculateFlag = false 
 
 // Functions
+function homePage(){
+    const keepMePostedButtonElement = document.querySelector('#keep-me-posted')
+    alert ('nova pag')
+}
 
 function keepMePosted() {
-    if (canCalculateFlag){
-        setCookie("nome", "Julia", 1)
-        // title and end date
+    const titleElement = document.getElementById('title')
+    const titletext = titleElement.value
+    const endDateElement = document.getElementById('enddate')
+    const endDate = endDateElement.value
     
-        alert ('deu certo')
-        // 
+    if (canCalculateFlag){
+        setCookie("title", titletext, 1)
+        setCookie("enddate", endDate, 1)
+       if(window.confirm('You are going to be redirect to another page, do you want to continue?')){
+        window.open ("file:///Users/priscilaeloy/Documents/GitHub/countdown/keepMePosted.html")
+       }
+        //como volta? tem como colocar um nao quero ser redirecionado? 
     }
     else {
-        alert('deu errado')
+        alert('Please, check if you have filled all the infos')
     }
 }
 
 function validateDate(endDate) {
-    // To do Here
     if (endDate > currentDate ){
         return true
     }
@@ -40,7 +50,8 @@ function validateDate(endDate) {
 function validateTitle(title) {
     const titleElement = document.getElementById('title')
     const titletext = titleElement.value
-    if (titletext == ""){
+
+    if (titletext.length<3){
         alert ("Please, insert a Title for your Countdown!")
         return false
     }
@@ -62,7 +73,7 @@ function validateCountdown() {
         canCalculateFlag = true
     } else {
         canCalculateFlag = false
-        alert ('Preencha todos os campos corretamente')
+        alert ('Please check all the fields required. You seemed to have left one behind!')
     }
 }
 
@@ -114,8 +125,9 @@ function deleteCookie(name) { setCookie(name, '', -1); }
 // Listeners 
 calculateButtonElement.addEventListener('click', validateCountdown)
 keepMePostedButtonElement.addEventListener('click', keepMePosted)
+//HomePageButtonElement.addEventListener('click', homePage)
 
-// Setters
+//Setters
 daysText.innerText = hoursText.innerText = minText.innerText = secText.innerText = "00";
 
 //calendar

@@ -294,21 +294,23 @@ input:focus{
     border-color: var(--light-grey) ;
 }
 
-.container-register input[type="submit"]{
+.container-register .full-box button{
     background-color: var(--light-grey);
     color: var(--light-purple);
     border: none;
     border-radius: 10px;
-    height: 30px;
+
     cursor: pointer;
+
+    margin-left: 2rem;
+    padding: 1rem 5rem;
+    box-align: center;
 }
 
-.container-register input[type="submit"]:hover{
-    border: 1px solid var(--light-purple);
+.container-register button:hover{
     background-color: var(--light-purple);
     color: var(--text-color);
     color: var(--light-grey);
-   
 }
 
 #agreement {
