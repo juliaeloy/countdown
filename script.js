@@ -1,7 +1,8 @@
 // Elements
 const calculateButtonElement = document.querySelector('#button-start-count')
 const keepMePostedButtonElement = document.querySelector('#keep-me-posted')
-const HomePageButtonElement = document.querySelector('#homePage') 
+const doAnotherOneButtonElement = document.querySelector('#doAnotherOne') 
+const updateMeButtonElement = document.querySelector('#btn-submit')
 const daysText = document.querySelector('#days')
 const hoursText = document.querySelector('#hours')
 const minText = document.querySelector('#min')
@@ -11,14 +12,83 @@ const endDate = document.querySelector("#enddate")
 
 //Global variables 
 let canCalculateFlag = false 
+let canSendEmail = false
 
 // Functions
-function homePage(){
-    const keepMePostedButtonElement = document.querySelector('#keep-me-posted')
-    alert ('nova pag')
+function doAnotherOne(){
+    console.log('teste')
+    alert ('deu certo')
 }
 
-function keepMePosted() {
+function isCheckboxTicked(){
+    const agreementElement = document.querySelector("#agreement")
+    // em standby -> const agreementInside = agreementElement.value
+    //posso garantir que quando eu ponho o .checked ele me retorna boolean? 
+    if(agreementElement.checked){
+        return true
+    }
+    else{
+        alert ('Please agree with the terms, if you want to receive emails')
+        return falses
+    }
+
+}
+
+function validateKeepMePosted(){
+
+    const nameIsValid = validateName()
+    const surnameIsValid = validateSurname()
+    const emailIsValid = validateEmail()
+    const checkBox = isCheckboxTicked()
+
+    if(nameIsValid && surnameIsValid && emailIsValid && checkBox) {
+        canSendEmail = true
+        window.location.href = ('http://127.0.0.1:5500/thankYou.html')
+        //send email future 
+        //does it open another page or just change the current one? 
+    }
+    else {
+        canSendEmail = false
+        alert ('Please check all the fields required. You seemed to have left one behind!')
+    }
+}
+
+function validateName(){//ainda esta funcionando se colocar mais de dois espacos
+    const nameElement = document.getElementById('name')
+    const nameText = nameElement.value
+
+    if (nameText.length<2){
+        alert ("Please, Check if you have filled your name")
+        return false
+    }
+    return true
+}
+
+function validateSurname(){
+    const surnameElement = document.getElementById('surname')
+    const surnameText = surnameElement.value
+
+    if (surnameText.length<2){//ainda esta funcionando se colocar mais de dois espacos
+        alert ("Please, Check if you have filled your surname")
+        return false
+    }
+    return true
+
+}
+
+function validateEmail(){
+    const emailElement = document.getElementById('surname')
+    const emailText = emailElement.value
+
+    if (emailText.length<2){ // como validar endereco de email, serve só 
+        alert ("Please, Check if you have filled your surname")
+        return false
+    }
+    return true
+
+}
+
+function SendInfoToKeepMePosted() {
     const titleElement = document.getElementById('title')
     const titletext = titleElement.value
     const endDateElement = document.getElementById('enddate')
@@ -28,9 +98,8 @@ function keepMePosted() {
         setCookie("title", titletext, 1)
         setCookie("enddate", endDate, 1)
        if(window.confirm('You are going to be redirect to another page, do you want to continue?')){
-        window.open ("file:///Users/priscilaeloy/Documents/GitHub/countdown/keepMePosted.html")
+        window.location.href = ("http://127.0.0.1:5500/keepMePosted.html")
        }
-        //como volta? tem como colocar um nao quero ser redirecionado? 
     }
     else {
         alert('Please, check if you have filled all the infos')
@@ -47,11 +116,12 @@ function validateDate(endDate) {
 
 }
 
-function validateTitle(title) {
+function validateTitle() {
     const titleElement = document.getElementById('title')
     const titletext = titleElement.value
 
-    if (titletext.length<3){
+
+    if (titletext.length<3 ){
         alert ("Please, insert a Title for your Countdown!")
         return false
     }
@@ -124,8 +194,9 @@ function deleteCookie(name) { setCookie(name, '', -1); }
 
 // Listeners 
 calculateButtonElement.addEventListener('click', validateCountdown)
-keepMePostedButtonElement.addEventListener('click', keepMePosted)
-//HomePageButtonElement.addEventListener('click', homePage)
+keepMePostedButtonElement.addEventListener('click', SendInfoToKeepMePosted)
+doAnotherOneButtonElement.addEventListener('click', doAnotherOne)
+updateMeButtonElement.addEventListener('click', isCheckboxTicked)
 
 //Setters
 daysText.innerText = hoursText.innerText = minText.innerText = secText.innerText = "00";
